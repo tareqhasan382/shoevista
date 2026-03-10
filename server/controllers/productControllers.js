@@ -29,9 +29,9 @@ export const getProduct = async (req, res) => {
 //Add a product
 export const addProduct = async (req, res) => {
     try {
-        const { img, brand, title, rating, reviews, sellPrice, orders, mrp, discount } = req.body;
+        const { img, brand, title, rating, reviews, sellPrice, orders, mrp, discount,category } = req.body;
 
-        const newProduct = await Products.create({ img, brand, title, rating, reviews, sellPrice, orders, mrp, discount });
+        const newProduct = await Products.create({ img, brand, title, rating, reviews, sellPrice, orders, mrp, discount,category });
         return res.status(201).json({ message: "Product created successfully", product: newProduct });
     } catch (error) {
         console.error(`Error while adding product: ${error.message}`);
